@@ -1,0 +1,46 @@
+{
+  "id": "constitution-typography",
+  "name": "Typography",
+  "type": "data",
+  "description": "Engineering constitution rules for typography",
+  "entryHints": [
+    "typography",
+    "fonts",
+    "text",
+    "headings",
+    "type scale",
+    "line height"
+  ],
+  "tags": [
+    "constitution",
+    "typography",
+    "design"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Typography\n\nApplied when working with text rendering, fonts, or typographic hierarchy.\n\n## Type Scale (use exact values)\n| Token | Size | Line Height | Weight | Use Case |\n|-------|------|-------------|--------|----------|\n| display | clamp(36px, 5vw, 64px) | 1.1 | 700 | Hero headlines only |\n| h1 | clamp(28px, 4vw, 48px) | 1.15 | 700 | Page titles |\n| h2 | clamp(22px, 3vw, 32px) | 1.2 | 600 | Section headings |\n| h3 | clamp(18px, 2.5vw, 24px) | 1.3 | 600 | Subsection headings |\n| body | 16px | 1.6 | 400 | Default body text |\n| body-sm | 14px | 1.5 | 400 | Secondary text |\n| caption | 12px | 1.4 | 500 | Metadata, timestamps |\n\n## FLUID_HEADINGS\n- DO: Always use clamp() for headings. Format: clamp(min, preferred-vw, max).\n- NEVER: Use fixed px values for headings.\n\n## TABULAR_NUMBERS\n- WHEN: Displaying numbers that change (counters, timers, prices)\n- DO: Apply font-variant-numeric: tabular-nums.\n- NEVER: Display changing numbers without tabular-nums.\n\n## TEXT_MAX_WIDTH\n- DO: Constrain paragraphs with max-width: 65ch.\n- NEVER: Let body text run wider than 75ch."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-design-system",
+      "when": {
+        "intent": "tokens visual identity branding"
+      },
+      "priority": 5,
+      "description": "Related: design-system"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.460Z",
+  "updated": "2026-02-06T07:52:20.460Z"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "constitution-data-layer",
+  "name": "Data Layer",
+  "type": "data",
+  "description": "Engineering constitution rules for data layer",
+  "entryHints": [
+    "database",
+    "schema",
+    "state management",
+    "caching",
+    "data",
+    "Prisma",
+    "URL state"
+  ],
+  "tags": [
+    "constitution",
+    "database",
+    "state",
+    "data"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Data Layer\n\nApplied when designing database schemas, managing state, or caching.\n\n## TABLE_NAMING\n- DO: Singular PascalCase models (User, Project). snake_case columns. Every table: id (cuid), createdAt, updatedAt.\n- NEVER: Use plural table names. Never use auto-increment IDs for user-facing resources.\n\n## RELATION_PATTERNS\n- DO: Define both sides of relation. Foreign key as {model}Id. Index every foreign key.\n- NEVER: Leave foreign keys unindexed.\n\n## STATE_LOCATION (prefer higher)\n1. Server state (Server Components)\n2. URL state (search params)\n3. Server cache (React Query)\n4. Component state (useState)\n5. Global client state (Zustand)\n\n## URL_AS_STATE\n- WHEN: Building filters, pagination, tabs, search\n- DO: Store in URL search params.\n- NEVER: Store filterable state in useState.\n\n## CACHE_INVALIDATION\n- DO: Use revalidatePath() or revalidateTag() after mutations.\n- NEVER: Rely on user refreshing."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-backend-api",
+      "when": {
+        "intent": "api server action mutation"
+      },
+      "priority": 5,
+      "description": "Related: backend-api"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.466Z",
+  "updated": "2026-02-06T07:52:20.466Z"
+}

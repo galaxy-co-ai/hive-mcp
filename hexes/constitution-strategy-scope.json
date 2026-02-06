@@ -1,0 +1,47 @@
+{
+  "id": "constitution-strategy-scope",
+  "name": "Strategy & Scope",
+  "type": "data",
+  "description": "Engineering constitution rules for strategy & scope",
+  "entryHints": [
+    "strategy",
+    "scope",
+    "MVP",
+    "planning",
+    "requirements",
+    "ship date",
+    "feature scoping"
+  ],
+  "tags": [
+    "constitution",
+    "strategy",
+    "planning"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Strategy & Scope\n\nApplied before building anything. Skip this and you build the wrong thing well.\n\n## DEFINE_THE_JOB\n- WHEN: Starting any new product or feature\n- DO: Complete: \"When [person] is [situation], they want [outcome] so they can [motivation].\"\n- WHY: Undefined jobs produce feature soup.\n- NEVER: Start building because a feature \"seems cool.\"\n\n## MVP_BOUNDARY\n- WHEN: Scoping what to build\n- DO: Define MUST HAVE (3-5 launch blockers), SHOULD HAVE (fast-follow), WON'T HAVE (explicit no).\n- WHY: Undefined scope expands infinitely. Ship MVP in 2-4 weeks.\n- NEVER: Start without a written won't-have list.\n\n## ONE_USER_ONE_FLOW\n- WHEN: Designing v1\n- DO: Optimize for ONE user type completing ONE primary flow.\n- NEVER: Build for multiple personas in v1.\n\n## SHIP_DATE\n- WHEN: Starting any project\n- DO: Set a ship date. If you'll miss it, cut scope — don't move the date.\n- NEVER: Push the date — cut features instead."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-project-setup",
+      "when": {
+        "intent": "scaffold setup initialize new project"
+      },
+      "priority": 5,
+      "description": "Related: project-setup"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.455Z",
+  "updated": "2026-02-06T07:52:20.455Z"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "constitution-testing-qa",
+  "name": "Testing & QA",
+  "type": "data",
+  "description": "Engineering constitution rules for testing & qa",
+  "entryHints": [
+    "testing",
+    "tests",
+    "QA",
+    "quality assurance",
+    "pre-launch",
+    "checklist"
+  ],
+  "tags": [
+    "constitution",
+    "testing",
+    "qa"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Testing & QA\n\nApplied when writing tests, auditing quality, or preparing for launch.\n\n## WHAT_TO_TEST (2am rule)\nALWAYS test:\n- Auth flows (sign up, sign in, password reset)\n- Payment/billing logic\n- Data mutations affecting multiple records\n- Business logic calculations\n- API response validation\n\nSKIP: Simple presentational components, third-party wrappers, CSS.\n\n## PRE_LAUNCH_QA Checklist\nFunctionality:\n- [ ] Core user journey start to finish\n- [ ] Empty states render\n- [ ] Large data paginates\n- [ ] Bad data handled\n- [ ] Loading/error states work\n\nCross-device:\n- [ ] iPhone Safari, Android Chrome, Desktop Chrome\n- [ ] 320px width\n\nPolish:\n- [ ] No console errors\n- [ ] Favicon and OG image work\n- [ ] 404 page exists\n\n## ACCESSIBILITY_AUDIT\n1. Automated: axe DevTools\n2. Keyboard: Tab through app\n3. Screen reader: VoiceOver/NVDA on main flow\n4. Zoom: 200% still works\n5. Color: Contrast ratios, colorblind simulator"
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-accessibility",
+      "when": {
+        "intent": "audit keyboard screen reader"
+      },
+      "priority": 5,
+      "description": "Related: accessibility"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-performance",
+      "when": {
+        "intent": "lighthouse audit vitals"
+      },
+      "priority": 5,
+      "description": "Related: performance"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.467Z",
+  "updated": "2026-02-06T07:52:20.467Z"
+}

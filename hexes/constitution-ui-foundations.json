@@ -1,0 +1,55 @@
+{
+  "id": "constitution-ui-foundations",
+  "name": "UI Foundations",
+  "type": "data",
+  "description": "Engineering constitution rules for ui foundations",
+  "entryHints": [
+    "UI",
+    "component",
+    "page",
+    "layout",
+    "interface",
+    "checklist"
+  ],
+  "tags": [
+    "constitution",
+    "ui",
+    "components"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# UI Foundations\n\nApplied when creating any new component, page, or layout.\n\n## Component Checklist\n- [ ] Renders correctly at 320px, 768px, 1024px, 1440px\n- [ ] No hardcoded pixel widths on containers\n- [ ] Interactive states implemented (hover, active, focus-visible, disabled)\n- [ ] Keyboard navigable\n- [ ] No layout shift on interaction\n- [ ] Loading/skeleton state exists if data-dependent\n- [ ] Error state exists if fallible\n- [ ] Empty state exists if content can be absent\n\n## REMOVE_BEFORE_ADD\n- WHEN: Designing any new UI\n- DO: Start with minimum elements. Add only when absence creates confusion.\n- NEVER: Add decorative borders, dividers, or backgrounds \"to fill space.\"\n\n## NO_VISUAL_NOISE\n- WHEN: Reviewing a completed component\n- DO: Ask \"can I remove this element and the UI still works?\" for every element.\n- NEVER: Use borders AND background color AND shadow on the same container. Pick one.\n\n## HIERARCHY_THROUGH_SPACE\n- DO: Use whitespace as primary separator. 32px between related groups, 64px+ between sections.\n- NEVER: Use <hr> or decorative dividers. Use spacing tokens.\n\n## CARD_STANDARD\n- DO: border-radius: 12px, padding: 24px, subtle border (1px solid at 6-8% opacity).\n- NEVER: Mix border-radius values across cards on the same page."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-interactive-elements",
+      "when": {
+        "intent": "button input form interactive"
+      },
+      "priority": 5,
+      "description": "Related: interactive-elements"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-layout-spacing",
+      "when": {
+        "intent": "grid spacing responsive breakpoint"
+      },
+      "priority": 5,
+      "description": "Related: layout-spacing"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.459Z",
+  "updated": "2026-02-06T07:52:20.459Z"
+}

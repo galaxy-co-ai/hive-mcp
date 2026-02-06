@@ -1,0 +1,55 @@
+{
+  "id": "constitution-project-setup",
+  "name": "Project Setup",
+  "type": "data",
+  "description": "Engineering constitution rules for project setup",
+  "entryHints": [
+    "new project",
+    "setup",
+    "scaffolding",
+    "initialize",
+    "dependencies",
+    "folder structure"
+  ],
+  "tags": [
+    "constitution",
+    "setup",
+    "scaffolding"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Project Setup\n\nApplied when scaffolding new projects.\n\n## Initialize\n```bash\nnpx create-next-app@latest --typescript --tailwind --eslint --app --src-dir\n```\n\n## TypeScript Strict\n```json\n{ \"compilerOptions\": { \"strict\": true, \"noUncheckedIndexedAccess\": true } }\n```\n\n## Core Dependencies\n```bash\nnpm install zod clsx tailwind-merge lucide-react\n```\n\n## Folder Structure\n```\nsrc/\n├── app/           # Next.js App Router\n├── components/\n│   ├── ui/        # Primitives (Button, Input)\n│   └── features/  # Feature-specific\n├── lib/\n│   ├── utils.ts\n│   └── schemas/   # Zod schemas\n├── hooks/\n└── types/\n```\n\n## DEPENDENCY_AUDIT\n- DO: Check bundlephobia. Prefer >100k weekly downloads. Ask: \"Can I build in <50 lines?\"\n- NEVER: Add dependency for <50 lines of code.\n\n## ENV_VARS\n- DO: Validate all with Zod at startup. Prefix client-safe with NEXT_PUBLIC_.\n- NEVER: Use process.env directly. Never commit .env files."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-code-standards",
+      "when": {
+        "intent": "typescript react patterns naming"
+      },
+      "priority": 5,
+      "description": "Related: code-standards"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-strategy-scope",
+      "when": {
+        "intent": "MVP planning requirements"
+      },
+      "priority": 5,
+      "description": "Related: strategy-scope"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.469Z",
+  "updated": "2026-02-06T07:52:20.469Z"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "constitution-design-system",
+  "name": "Design System",
+  "type": "data",
+  "description": "Engineering constitution rules for design system",
+  "entryHints": [
+    "design system",
+    "tokens",
+    "fonts",
+    "colors",
+    "visual identity",
+    "branding"
+  ],
+  "tags": [
+    "constitution",
+    "design",
+    "tokens"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Design System\n\nApplied when defining visual identity for a specific product.\n\n## TOKEN_DEFINITION\n- WHEN: Starting a new product\n- DO: Define before building: COLORS (Primary, Background, Surface, Text, Borders, Accent, Destructive, Success, Warning), TYPOGRAPHY (Heading, Body, Mono fonts), BORDER RADIUS (Small, Medium, Large), SHADOWS (Subtle, Medium, Large).\n- NEVER: Start building UI without defined tokens.\n\n## FONT_SELECTION\nChoose based on personality:\n- Technical/Developer: Mono or geometric sans (JetBrains Mono, Inter, Space Grotesk)\n- Professional/Enterprise: Clean neo-grotesque (Inter, Geist, SF Pro)\n- Warm/Consumer: Humanist sans (Source Sans, Nunito, DM Sans)\nMaximum 2 font families. Load from next/font.\n\n## COLOR_PALETTE_CREATION\nStart with ONE primary color. Derive everything else. Test in light AND dark mode before building.\n\n## COMPONENT_LIBRARY\nUse shadcn/ui as starting point. Install only needed components. Customize tokens to match your design system.\n\n## ICON_SYSTEM\nPick ONE icon library (Lucide React recommended). Consistent sizing: 16px inline, 20px buttons/nav, 24px feature icons."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-color-system",
+      "when": {
+        "intent": "color palette theme dark mode"
+      },
+      "priority": 5,
+      "description": "Related: color-system"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-typography",
+      "when": {
+        "intent": "fonts type scale heading"
+      },
+      "priority": 5,
+      "description": "Related: typography"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.457Z",
+  "updated": "2026-02-06T07:52:20.457Z"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "constitution-layout-spacing",
+  "name": "Layout & Spacing",
+  "type": "data",
+  "description": "Engineering constitution rules for layout & spacing",
+  "entryHints": [
+    "layout",
+    "spacing",
+    "grid",
+    "responsive",
+    "breakpoints",
+    "flex",
+    "gap"
+  ],
+  "tags": [
+    "constitution",
+    "layout",
+    "spacing",
+    "responsive"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Layout & Spacing\n\nApplied when positioning elements, creating layouts, or defining spacing.\n\n## 4px Grid (use these tokens ONLY)\n| Token | Value | Use Case |\n|-------|-------|----------|\n| xs | 4px | Inline icon gaps |\n| sm | 8px | Related element gaps |\n| md | 12px | Compact card padding |\n| base | 16px | Default padding |\n| lg | 20px | Component internal padding |\n| xl | 24px | Card padding |\n| 2xl | 32px | Between related sections |\n| 3xl | 40px | Major section breaks |\n| 4xl | 48px | Page section padding |\n| 5xl | 64px | Hero sections |\n\n## SPACING_PROXIMITY\n- DO: Related items get LESS space. Unrelated items get MORE space. Ratio at least 2:1.\n- NEVER: Use same spacing everywhere.\n\n## RESPONSIVE_BREAKPOINTS\n- sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px\n- Mobile-first: base styles for 320px, add min-width queries upward.\n- NEVER: Use max-width queries.\n\n## FLEX_VS_GRID\n- Flex: one-dimensional (nav bars, button groups)\n- Grid: two-dimensional (page structure, card grids)\n- NEVER: Use float for layout.\n\n## DEAD_ZONES\n- DO: Make ENTIRE row/item clickable, not just text. Zero gaps between interactive items."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-ui-foundations",
+      "when": {
+        "intent": "component container card"
+      },
+      "priority": 5,
+      "description": "Related: ui-foundations"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.463Z",
+  "updated": "2026-02-06T07:52:20.463Z"
+}

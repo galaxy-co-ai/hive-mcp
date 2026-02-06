@@ -1,0 +1,194 @@
+{
+  "id": "engineering-constitution",
+  "name": "Engineering Constitution",
+  "type": "junction",
+  "description": "Agent-native routing hub for engineering standards. Query with your current task to get relevant rules.",
+  "entryHints": [
+    "engineering rules",
+    "engineering standards",
+    "code standards",
+    "how to build",
+    "best practices",
+    "constitution",
+    "coding guidelines",
+    "development rules"
+  ],
+  "tags": [
+    "constitution",
+    "standards",
+    "hub"
+  ],
+  "contents": {
+    "data": {
+      "purpose": "Route agents to specific engineering rule domains based on current task",
+      "usage": "Query with your task intent. Follow edges to relevant domain hexes.",
+      "globalRules": "## Global Non-Negotiables (Always Applied)\n\nThese apply to EVERY file, EVERY component, EVERY commit:\n\n### Code\n1. TypeScript strict mode. No `any` types. Zod validation on all external data.\n2. Every server action returns `{ success: true, data } | { success: false, error }`. No exceptions thrown to client.\n3. Auth check is the FIRST line of every protected server action and API route.\n4. All env vars validated with Zod at startup. Missing var = app doesn't start.\n\n### UI\n5. Every interactive element must have: hover state, active/pressed state, focus-visible state, and disabled state.\n6. All spacing uses the 4px grid: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128.\n7. No orphan styles. Every style belongs to a design token or a component.\n8. Mobile-first responsive. Start at 320px, scale up.\n9. `-webkit-font-smoothing: antialiased` and `text-rendering: optimizeLegibility` on body.\n10. `box-sizing: border-box` globally applied.\n11. No dead click areas — expand padding, not margin.\n12. `user-select: none` on interactive element labels. `pointer-events: none` on decorative elements.\n\n### Copy\n13. Button labels use verb + noun (\"Create project\" not \"Submit\").\n14. Error messages follow: what happened + why + what to do next.\n15. Never use \"successfully\" — it's always redundant.\n16. Sentence case everywhere. No Title Case except brand names.\n\n### Quality\n17. No `console.log` in production code. Use structured logging server-side.\n18. Every LLM call has `maxTokens` set and rate limiting applied.\n19. Every webhook verifies signature before processing."
+    }
+  },
+  "edges": [
+    {
+      "id": "to-strategy",
+      "to": "constitution-strategy-scope",
+      "when": {
+        "intent": "new product feature scoping planning MVP requirements"
+      },
+      "priority": 10,
+      "description": "Strategy, scoping, MVP definition, ship dates"
+    },
+    {
+      "id": "to-design-system",
+      "to": "constitution-design-system",
+      "when": {
+        "intent": "visual identity tokens colors fonts design system branding"
+      },
+      "priority": 10,
+      "description": "Design tokens, fonts, colors, component library choice"
+    },
+    {
+      "id": "to-ui-foundations",
+      "to": "constitution-ui-foundations",
+      "when": {
+        "intent": "component page layout UI interface building"
+      },
+      "priority": 9,
+      "description": "Component patterns, restraint, visual hierarchy"
+    },
+    {
+      "id": "to-typography",
+      "to": "constitution-typography",
+      "when": {
+        "intent": "typography text fonts headings type scale"
+      },
+      "priority": 8,
+      "description": "Type scale, fluid sizing, font settings"
+    },
+    {
+      "id": "to-interactive",
+      "to": "constitution-interactive-elements",
+      "when": {
+        "intent": "buttons inputs forms links toggles interactive"
+      },
+      "priority": 9,
+      "description": "Buttons, inputs, forms, all interactive states"
+    },
+    {
+      "id": "to-motion",
+      "to": "constitution-motion",
+      "when": {
+        "intent": "animation transition motion hover effects"
+      },
+      "priority": 8,
+      "description": "Animation timing, easing, enter/exit patterns"
+    },
+    {
+      "id": "to-color",
+      "to": "constitution-color-system",
+      "when": {
+        "intent": "color theme dark mode palette tokens"
+      },
+      "priority": 8,
+      "description": "Semantic tokens, dark mode, contrast"
+    },
+    {
+      "id": "to-layout",
+      "to": "constitution-layout-spacing",
+      "when": {
+        "intent": "layout spacing grid responsive breakpoints"
+      },
+      "priority": 8,
+      "description": "4px grid, breakpoints, flex/grid patterns"
+    },
+    {
+      "id": "to-accessibility",
+      "to": "constitution-accessibility",
+      "when": {
+        "intent": "accessibility a11y WCAG screen reader keyboard focus"
+      },
+      "priority": 9,
+      "description": "WCAG AA, focus management, ARIA, semantic HTML"
+    },
+    {
+      "id": "to-performance",
+      "to": "constitution-performance",
+      "when": {
+        "intent": "performance speed optimization loading bundle"
+      },
+      "priority": 8,
+      "description": "Core Web Vitals, images, code splitting"
+    },
+    {
+      "id": "to-code-standards",
+      "to": "constitution-code-standards",
+      "when": {
+        "intent": "code standards TypeScript React naming patterns"
+      },
+      "priority": 9,
+      "description": "TypeScript strict, React patterns, file naming"
+    },
+    {
+      "id": "to-backend",
+      "to": "constitution-backend-api",
+      "when": {
+        "intent": "backend API server action auth rate limiting webhook"
+      },
+      "priority": 9,
+      "description": "Server actions, API routes, auth, AI integration"
+    },
+    {
+      "id": "to-data-layer",
+      "to": "constitution-data-layer",
+      "when": {
+        "intent": "database schema state management caching data"
+      },
+      "priority": 8,
+      "description": "Database schemas, state management, caching"
+    },
+    {
+      "id": "to-copy-voice",
+      "to": "constitution-copy-voice",
+      "when": {
+        "intent": "copy text writing labels errors empty states UX writing"
+      },
+      "priority": 8,
+      "description": "Microcopy, error messages, button labels, tone"
+    },
+    {
+      "id": "to-testing",
+      "to": "constitution-testing-qa",
+      "when": {
+        "intent": "testing tests QA quality assurance pre-launch"
+      },
+      "priority": 8,
+      "description": "What to test, pre-launch QA, audits"
+    },
+    {
+      "id": "to-ops",
+      "to": "constitution-ops-ship",
+      "when": {
+        "intent": "deployment deploy shipping CI CD monitoring logging"
+      },
+      "priority": 8,
+      "description": "Deployment, environments, monitoring, git workflow"
+    },
+    {
+      "id": "to-growth",
+      "to": "constitution-growth-launch",
+      "when": {
+        "intent": "launch SEO analytics landing page growth"
+      },
+      "priority": 8,
+      "description": "SEO, analytics, landing pages, launch checklist"
+    },
+    {
+      "id": "to-project-setup",
+      "to": "constitution-project-setup",
+      "when": {
+        "intent": "new project setup scaffolding initialize dependencies"
+      },
+      "priority": 9,
+      "description": "Project scaffolding, dependencies, folder structure"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.451Z",
+  "updated": "2026-02-06T07:52:20.451Z"
+}

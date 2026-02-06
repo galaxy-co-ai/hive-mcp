@@ -1,0 +1,55 @@
+{
+  "id": "constitution-motion",
+  "name": "Motion & Animation",
+  "type": "data",
+  "description": "Engineering constitution rules for motion & animation",
+  "entryHints": [
+    "animation",
+    "motion",
+    "transition",
+    "hover",
+    "easing",
+    "duration"
+  ],
+  "tags": [
+    "constitution",
+    "animation",
+    "design"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Motion & Animation\n\nApplied when adding transitions, animations, hover effects, or state changes.\n\n## Duration Scale\n| Token | Duration | Use Case |\n|-------|----------|----------|\n| instant | 100ms | Color changes, opacity toggles |\n| fast | 150ms | Button presses, hover states |\n| normal | 200ms | Dropdowns, tooltips |\n| smooth | 300ms | Modals, drawers |\n| slow | 500ms | Complex layout shifts |\n\n## Easing\n- ease-out: cubic-bezier(0, 0, 0.2, 1) — Elements entering\n- ease-in: cubic-bezier(0.4, 0, 1, 1) — Elements exiting\n- ease-in-out: cubic-bezier(0.4, 0, 0.2, 1) — Elements transforming\n\n## ENTER_VS_EXIT\n- Enter: fade in + scale from 0.95 with ease-out\n- Exit: fade out with ease-in, 30% faster than enter\n- NEVER: Use same duration for enter and exit.\n\n## NO_LAYOUT_ANIMATION\n- DO: Only animate transform and opacity (GPU-composited).\n- NEVER: Animate width, height, padding, margin, top, left.\n\n## RESPECT_REDUCED_MOTION\n```css\n@media (prefers-reduced-motion: reduce) {\n  *, *::before, *::after {\n    animation-duration: 0.01ms !important;\n    transition-duration: 0.01ms !important;\n  }\n}\n```"
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-interactive-elements",
+      "when": {
+        "intent": "button hover press state"
+      },
+      "priority": 5,
+      "description": "Related: interactive-elements"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-performance",
+      "when": {
+        "intent": "optimization gpu transform"
+      },
+      "priority": 5,
+      "description": "Related: performance"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.462Z",
+  "updated": "2026-02-06T07:52:20.462Z"
+}

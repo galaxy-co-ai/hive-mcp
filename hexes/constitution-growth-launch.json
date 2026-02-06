@@ -1,0 +1,48 @@
+{
+  "id": "constitution-growth-launch",
+  "name": "Growth & Launch",
+  "type": "data",
+  "description": "Engineering constitution rules for growth & launch",
+  "entryHints": [
+    "launch",
+    "SEO",
+    "analytics",
+    "landing page",
+    "growth",
+    "OG image",
+    "marketing"
+  ],
+  "tags": [
+    "constitution",
+    "launch",
+    "growth",
+    "seo"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Growth & Launch\n\nApplied when preparing for launch, analytics, or discovery.\n\n## SEO_FOUNDATIONS\nEvery page needs: title (50-60 chars), description (120-155 chars), openGraph, twitter cards, sitemap.xml, robots.txt.\n- NEVER: Launch without meta tags.\n\n## OG_IMAGE\n- DO: 1200x630px for every distinct page type. Use @vercel/og for dynamic.\n- NEVER: Ship without OG images.\n\n## ANALYTICS_SETUP\nCore events: page_view, sign_up, sign_in, core_action, upgrade_started, upgrade_completed, error_shown\n- DO: Define taxonomy BEFORE instrumenting.\n- NEVER: Track everything or track PII.\n\n## LANDING_PAGE_STRUCTURE\n1. Hero: benefit headline + CTA\n2. Social proof\n3. Problem (2-3 pain points)\n4. Solution (show product)\n5. Features (3-4 key capabilities)\n6. Proof (testimonials)\n7. Pricing\n8. Final CTA\n\n## LAUNCH_CHECKLIST\nTechnical: env vars, DB migrated, Sentry active, analytics, domain/SSL, OG images, sitemap\nContent: landing page, terms/privacy, FAQ, welcome email\nLaunch day: Test signup, post announcement, monitor errors 2hrs, respond to users within 2hrs"
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-ops-ship",
+      "when": {
+        "intent": "deploy production environment"
+      },
+      "priority": 5,
+      "description": "Related: ops-ship"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.469Z",
+  "updated": "2026-02-06T07:52:20.469Z"
+}

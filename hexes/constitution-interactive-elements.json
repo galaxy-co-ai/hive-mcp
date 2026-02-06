@@ -1,0 +1,58 @@
+{
+  "id": "constitution-interactive-elements",
+  "name": "Interactive Elements",
+  "type": "data",
+  "description": "Engineering constitution rules for interactive elements",
+  "entryHints": [
+    "buttons",
+    "inputs",
+    "forms",
+    "links",
+    "toggles",
+    "interactive",
+    "click",
+    "tap"
+  ],
+  "tags": [
+    "constitution",
+    "ui",
+    "forms",
+    "interactive"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Interactive Elements\n\nApplied when building buttons, inputs, forms, links, toggles, or any clickable element.\n\n## Universal Rules (ALL interactive elements)\n```css\n.interactive {\n  user-select: none;\n  cursor: pointer;\n  -webkit-tap-highlight-color: transparent;\n  touch-action: manipulation;\n  transition: all 150ms ease;\n}\n```\n\nAll interactive elements MUST define: Default, Hover, Active/Pressed, Focus-visible, Disabled states.\n\n## BUTTON_SIZES\n- sm: height 32px, padding 0 12px, font-size 13px\n- md: height 40px, padding 0 16px, font-size 14px\n- lg: height 48px, padding 0 24px, font-size 16px\nMinimum touch target: 44x44px.\n\n## BUTTON_VARIANTS\n- primary: Solid background. ONE per visible screen area.\n- secondary: Border/outline only.\n- ghost: No background, text-only with hover.\n- destructive: Red-toned. Deletions only.\n\n## INPUT_STANDARD\nHeight 40px, padding 0 12px, border-radius 8px. Font-size 16px (prevents iOS zoom).\n\n## INPUT_FOCUS\nUse 2px ring (box-shadow, not border): box-shadow: 0 0 0 2px rgba(primary, 0.5).\nNEVER use border changes for focus (causes layout shift)."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-accessibility",
+      "when": {
+        "intent": "keyboard focus screen reader ARIA a11y"
+      },
+      "priority": 5,
+      "description": "Related: accessibility"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-motion",
+      "when": {
+        "intent": "animation transition hover easing"
+      },
+      "priority": 5,
+      "description": "Related: motion"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.461Z",
+  "updated": "2026-02-06T07:52:20.461Z"
+}

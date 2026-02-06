@@ -1,0 +1,49 @@
+{
+  "id": "constitution-ops-ship",
+  "name": "Ops & Ship",
+  "type": "data",
+  "description": "Engineering constitution rules for ops & ship",
+  "entryHints": [
+    "deployment",
+    "deploy",
+    "shipping",
+    "CI",
+    "CD",
+    "monitoring",
+    "logging",
+    "git"
+  ],
+  "tags": [
+    "constitution",
+    "ops",
+    "deployment",
+    "devops"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Ops & Ship\n\nApplied when deploying, managing environments, or monitoring.\n\n## GIT_WORKFLOW\n- DO: Trunk-based. Work on main. Short-lived feature branches. Conventional commits.\n- NEVER: Work on branch > 2-3 days without merging.\n\n## ENVIRONMENT_MANAGEMENT\n- Local: .env.local\n- Preview: Vercel preview deployments\n- Production: .env vars in Vercel dashboard\n- DO: Validate all env vars with Zod at startup. Separate DBs for preview/production.\n- NEVER: Share database between preview and production.\n\n## PRE_DEPLOY_CHECKLIST\n- [ ] npm run build passes\n- [ ] TypeScript zero errors\n- [ ] No console.log in production\n- [ ] New env vars set in Vercel\n- [ ] DB migrations applied\n- [ ] Test critical path manually\n\n## ERROR_MONITORING\n- DO: Install Sentry before first user. Configure source maps. Set up alerts.\n- NEVER: Ship without error monitoring.\n\n## LOGGING_STANDARDS\nLevels: error (broke), warn (unexpected but handled), info (business events), debug (troubleshooting)\n- DO: Structured JSON logging.\n- NEVER: Log sensitive data. No console.log in production."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-growth-launch",
+      "when": {
+        "intent": "launch SEO analytics"
+      },
+      "priority": 5,
+      "description": "Related: growth-launch"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.468Z",
+  "updated": "2026-02-06T07:52:20.468Z"
+}

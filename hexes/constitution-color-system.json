@@ -1,0 +1,56 @@
+{
+  "id": "constitution-color-system",
+  "name": "Color System",
+  "type": "data",
+  "description": "Engineering constitution rules for color system",
+  "entryHints": [
+    "color",
+    "theme",
+    "dark mode",
+    "palette",
+    "tokens",
+    "contrast"
+  ],
+  "tags": [
+    "constitution",
+    "color",
+    "design",
+    "theming"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Color System\n\nApplied when choosing colors, implementing themes, or building dark mode.\n\n## Semantic Tokens (USE THESE in components)\n```css\n--color-bg-primary, --color-bg-secondary, --color-bg-tertiary\n--color-text-primary, --color-text-secondary, --color-text-tertiary\n--color-border-default, --color-border-subtle, --color-border-strong\n--color-accent, --color-accent-hover, --color-accent-subtle\n--color-success, --color-warning, --color-destructive\n```\n\n## SEMANTIC_NOT_RAW\n- DO: Use semantic tokens (--color-text-primary).\n- NEVER: Use raw hex (#1a1a1a) or Tailwind literals (text-gray-500) in components.\n\n## DARK_MODE_NOT_INVERSION\n- DO: Design dark mode as separate palette. Warm grays (hsl 220, 10%, 10%), not pure black. Text at 85-90% white.\n- NEVER: Use #000000 background or #ffffff text on dark.\n\n## CONTRAST_MINIMUMS\n- Normal text (<24px): 4.5:1 ratio\n- Large text (≥24px): 3:1 ratio\n- UI components: 3:1 ratio\n\n## COLOR_FOR_MEANING\n- DO: Always pair color with icon or text label.\n- NEVER: Rely solely on color (8% of men are colorblind)."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-design-system",
+      "when": {
+        "intent": "tokens visual identity"
+      },
+      "priority": 5,
+      "description": "Related: design-system"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-accessibility",
+      "when": {
+        "intent": "contrast ratio colorblind"
+      },
+      "priority": 5,
+      "description": "Related: accessibility"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.462Z",
+  "updated": "2026-02-06T07:52:20.462Z"
+}

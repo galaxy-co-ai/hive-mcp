@@ -1,0 +1,47 @@
+{
+  "id": "constitution-performance",
+  "name": "Performance",
+  "type": "data",
+  "description": "Engineering constitution rules for performance",
+  "entryHints": [
+    "performance",
+    "speed",
+    "optimization",
+    "loading",
+    "bundle",
+    "Core Web Vitals",
+    "LCP"
+  ],
+  "tags": [
+    "constitution",
+    "performance",
+    "optimization"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Performance\n\nApplied when loading assets, rendering pages, or optimizing UX.\n\n## Core Web Vitals Targets\n- LCP: < 2.5s\n- INP: < 200ms\n- CLS: < 0.1\n\n## IMAGE_OPTIMIZATION\n- DO: Use Next.js <Image>. Specify width/height. Use priority only for above-fold LCP images.\n- NEVER: Use <img> without dimensions.\n\n## FONT_LOADING\n- DO: Use next/font. Preload primary weight. Max 2 families, 3-4 weights total.\n- NEVER: Load from Google Fonts CDN directly.\n\n## BUNDLE_SIZE\n- DO: Check bundlephobia before adding deps. Dynamic import() for non-critical components. Tree-shake imports.\n- NEVER: Import entire libraries for one function.\n\n## LAYOUT_SHIFT_PREVENTION\n- DO: Reserve space for images. Use skeletons matching content dimensions.\n- NEVER: Render content that pushes other content down after initial paint.\n\n## CODE_SPLITTING\n- DO: Use next/dynamic for heavy components. Load modals dynamically."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-motion",
+      "when": {
+        "intent": "animation gpu transform"
+      },
+      "priority": 5,
+      "description": "Related: motion"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.464Z",
+  "updated": "2026-02-06T07:52:20.464Z"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "constitution-copy-voice",
+  "name": "Copy & Voice",
+  "type": "data",
+  "description": "Engineering constitution rules for copy & voice",
+  "entryHints": [
+    "copy",
+    "text",
+    "writing",
+    "labels",
+    "errors",
+    "empty states",
+    "UX writing",
+    "microcopy"
+  ],
+  "tags": [
+    "constitution",
+    "copy",
+    "writing",
+    "ux"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Copy & Voice\n\nApplied when writing any user-facing text.\n\nVoice: Clear, Confident, Human.\n\n## BUTTON_LABELS\n- DO: Verb + noun. \"Create project\" / \"Save changes\" / \"Delete account\"\n- NEVER: \"Submit\" / \"OK\" / \"Confirm\" / \"Yes\"\n\n## ERROR_MESSAGES\nFormula: What happened + Why + What to do next.\n- DO: \"Couldn't save. File too large (max 10MB). Try compressing.\"\n- NEVER: \"Error: 413\" or \"Something went wrong.\"\n\n## EMPTY_STATES\nShow: (1) What would be here, (2) Why empty, (3) How to fill it.\n- DO: \"No projects yet. Create your first project.\" + [Create project] button\n- NEVER: Blank space with no explanation.\n\n## LOADING_MESSAGES\n- DO: Be specific. \"Loading your projects...\" not \"Loading...\"\n- For AI (3+ seconds): progressive messages every 2-3s.\n\n## SUCCESS_MESSAGES\n- DO: Brief and specific. \"Project created\" / \"Changes saved\"\n- NEVER: Use \"successfully\" — it's always redundant.\n\n## CONFIRMATION_DIALOGS\n- DO: State consequence. \"Delete 'Q4 Report'? This can't be undone.\" Actions: \"Cancel\" + \"Delete report\"\n- NEVER: \"Are you sure?\" as title."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-interactive-elements",
+      "when": {
+        "intent": "button label form input"
+      },
+      "priority": 5,
+      "description": "Related: interactive-elements"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.467Z",
+  "updated": "2026-02-06T07:52:20.467Z"
+}

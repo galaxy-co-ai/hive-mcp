@@ -1,0 +1,47 @@
+{
+  "id": "constitution-code-standards",
+  "name": "Code Standards",
+  "type": "data",
+  "description": "Engineering constitution rules for code standards",
+  "entryHints": [
+    "code standards",
+    "TypeScript",
+    "React",
+    "naming",
+    "patterns",
+    "strict mode"
+  ],
+  "tags": [
+    "constitution",
+    "code",
+    "typescript",
+    "react"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Code Standards\n\nApplied to every file, every function, every component.\n\n## STRICT_MODE\n- DO: strict: true in tsconfig. No any. No @ts-ignore.\n- NEVER: Use any or disable strict mode.\n\n## ZOD_BOUNDARIES\n- WHEN: Data crosses trust boundary (API, form, URL params, env vars)\n- DO: Define Zod schema and parse. Use z.infer<typeof schema> for type.\n- NEVER: Trust API responses without validation.\n\n## SERVER_FIRST\n- DO: Default to Server Component. Add \"use client\" only for useState, useEffect, event handlers, browser APIs.\n- NEVER: Use useEffect for data fetching.\n\n## COMPONENT_STRUCTURE\nOrder: Types → Component function → Hooks → Derived values → Event handlers → Early returns → JSX\n\n## FILE_NAMING\n- Components: PascalCase.tsx\n- Hooks: use-kebab-case.ts\n- Utilities: kebab-case.ts\n\n## NAMING_CONVENTIONS\n- Booleans: is, has, should, can prefix\n- Event handlers: handle prefix\n- Event props: on prefix\n- Async functions: action verb suffix (fetchUsers, createProject)"
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-backend-api",
+      "when": {
+        "intent": "server action api route"
+      },
+      "priority": 5,
+      "description": "Related: backend-api"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.465Z",
+  "updated": "2026-02-06T07:52:20.465Z"
+}

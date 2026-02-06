@@ -1,0 +1,56 @@
+{
+  "id": "constitution-accessibility",
+  "name": "Accessibility",
+  "type": "data",
+  "description": "Engineering constitution rules for accessibility",
+  "entryHints": [
+    "accessibility",
+    "a11y",
+    "WCAG",
+    "screen reader",
+    "keyboard",
+    "focus",
+    "ARIA"
+  ],
+  "tags": [
+    "constitution",
+    "accessibility",
+    "a11y"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Accessibility\n\nApplied to every component, every page. WCAG 2.1 AA is the minimum standard.\n\n## SEMANTIC_HTML\n- DO: Use header, nav, main, section, article, aside, footer. One h1 per page. Never skip heading levels.\n- NEVER: Use div for everything.\n\n## FOCUS_MANAGEMENT\n- DO: Visible focus with :focus-visible. 2px ring, offset 2px. Tab order follows visual order.\n- NEVER: Remove focus outlines without alternative.\n\n## IMAGE_ALT_TEXT\n- Informative images: descriptive alt text\n- Decorative images: alt=\"\"\n- Icons in buttons: button gets aria-label, icon gets aria-hidden=\"true\"\n\n## ICON_BUTTONS\n- DO: Add aria-label describing the action.\n- NEVER: Create icon-only buttons without aria-label.\n\n## TOUCH_TARGETS\n- DO: Minimum 44x44px.\n- NEVER: Ship interactive elements smaller than 44x44px on mobile.\n\n## DIALOG_PATTERN\n- DO: Use <dialog> or role=\"dialog\" with aria-modal=\"true\". Trap focus. Close on Escape. Return focus on close."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-interactive-elements",
+      "when": {
+        "intent": "button input form focus"
+      },
+      "priority": 5,
+      "description": "Related: interactive-elements"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-color-system",
+      "when": {
+        "intent": "contrast color meaning"
+      },
+      "priority": 5,
+      "description": "Related: color-system"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.464Z",
+  "updated": "2026-02-06T07:52:20.464Z"
+}

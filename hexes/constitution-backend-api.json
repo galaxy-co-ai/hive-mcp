@@ -1,0 +1,57 @@
+{
+  "id": "constitution-backend-api",
+  "name": "Backend & API",
+  "type": "data",
+  "description": "Engineering constitution rules for backend & api",
+  "entryHints": [
+    "backend",
+    "API",
+    "server action",
+    "auth",
+    "rate limiting",
+    "webhook",
+    "AI integration"
+  ],
+  "tags": [
+    "constitution",
+    "backend",
+    "api",
+    "auth"
+  ],
+  "contents": {
+    "data": {
+      "rules": "# Backend & API Patterns\n\nApplied when building server actions, API routes, database queries, or auth flows.\n\n## SERVER_ACTIONS_FIRST\n- DO: Use Server Actions for mutations. Server Components for reads.\n- NEVER: Create /api/ routes for standard CRUD.\n\n## API_ROUTE_SHAPE\nSuccess: { success: true, data: T }\nError: { success: false, error: { code, message, details? } }\n- NEVER: Return 200 with error body.\n\n## VALIDATE_AT_BOUNDARY\n- DO: Parse with Zod immediately when data enters. Fail fast.\n- NEVER: Validate inside business logic.\n\n## AUTH_PATTERN\n- DO: Check auth at TOP of every protected action/route. Check both authentication AND authorization.\n- NEVER: Trust client-side auth state for server decisions.\n\n## RATE_LIMITING\n- DO: Rate limit auth endpoints, AI/LLM calls, file uploads, search, writes.\n- NEVER: Ship AI features without rate limiting.\n\n## WEBHOOK_HANDLING\n- DO: Verify signature FIRST. Process idempotently. Return 200 immediately.\n- NEVER: Process without signature verification.\n\n## AI_INTEGRATION\n- DO: Stream responses. Set max_tokens. Validate AI output with Zod. Implement timeout and retry.\n- NEVER: Trust AI output without validation. Never make AI calls without rate limiting."
+    }
+  },
+  "edges": [
+    {
+      "id": "back-to-hub",
+      "to": "engineering-constitution",
+      "when": {
+        "always": true
+      },
+      "priority": 1,
+      "description": "Return to constitution hub for other domains"
+    },
+    {
+      "id": "to-related-0",
+      "to": "constitution-data-layer",
+      "when": {
+        "intent": "database schema state caching"
+      },
+      "priority": 5,
+      "description": "Related: data-layer"
+    },
+    {
+      "id": "to-related-1",
+      "to": "constitution-code-standards",
+      "when": {
+        "intent": "typescript zod validation patterns"
+      },
+      "priority": 5,
+      "description": "Related: code-standards"
+    }
+  ],
+  "created": "2026-02-06T07:52:20.465Z",
+  "updated": "2026-02-06T07:52:20.465Z"
+}
