@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * Hive MCP Server
  *
